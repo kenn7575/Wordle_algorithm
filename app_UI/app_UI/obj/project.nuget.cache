@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "SKtr0xeSG5GKVB8/6C9ERsB9NHIAGXKmXHJzg4KfgCnzdARJbzOLDz39+7DGlkpRcbsdiqw+67OzAgZ17iP0BQ==",
+  "success": true,
+  "projectFilePath": "/Users/kennikollemorten/Projects/WorldleAlgorihtm/app_UI/app_UI/app_UI.csproj",
+  "expectedPackageFiles": [
+    "/Users/kennikollemorten/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "/Users/kennikollemorten/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512",
+    "/Users/kennikollemorten/.nuget/packages/system.numerics.vectors/4.5.0/system.numerics.vectors.4.5.0.nupkg.sha512",
+    "/Users/kennikollemorten/.nuget/packages/xamarin.essentials/1.7.0/xamarin.essentials.1.7.0.nupkg.sha512",
+    "/Users/kennikollemorten/.nuget/packages/xamarin.forms/5.0.0.2196/xamarin.forms.5.0.0.2196.nupkg.sha512"
+  ],
+  "logs": []
+}

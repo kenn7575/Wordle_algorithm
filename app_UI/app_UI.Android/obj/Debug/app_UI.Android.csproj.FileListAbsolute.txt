@@ -1,0 +1,6 @@
+/Users/kennikollemorten/Projects/WorldleAlgorihtm/app_UI/app_UI.Android/obj/Debug/MonoAndroid,Version=v13.0.AssemblyAttributes.cs
+/Users/kennikollemorten/Projects/WorldleAlgorihtm/app_UI/app_UI.Android/obj/Debug/build.props
+/Users/kennikollemorten/Projects/WorldleAlgorihtm/app_UI/app_UI.Android/obj/Debug/adb.props
+/Users/kennikollemorten/Projects/WorldleAlgorihtm/app_UI/app_UI.Android/obj/Debug/app_UI.Android.csproj.AssemblyReference.cache
+/Users/kennikollemorten/Projects/WorldleAlgorihtm/app_UI/app_UI.Android/obj/Debug/stamp/_BuildLibraryImportsCache.stamp
+/Users/kennikollemorten/Projects/WorldleAlgorihtm/app_UI/app_UI.Android/obj/Debug/res.flag

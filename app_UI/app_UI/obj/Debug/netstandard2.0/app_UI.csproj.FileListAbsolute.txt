@@ -1,0 +1,15 @@
+/Users/kennikollemorten/Projects/WorldleAlgorihtm/app_UI/app_UI/bin/Debug/netstandard2.0/app_UI.deps.json
+/Users/kennikollemorten/Projects/WorldleAlgorihtm/app_UI/app_UI/bin/Debug/netstandard2.0/app_UI.dll
+/Users/kennikollemorten/Projects/WorldleAlgorihtm/app_UI/app_UI/bin/Debug/netstandard2.0/ref/app_UI.dll
+/Users/kennikollemorten/Projects/WorldleAlgorihtm/app_UI/app_UI/bin/Debug/netstandard2.0/app_UI.pdb
+/Users/kennikollemorten/Projects/WorldleAlgorihtm/app_UI/app_UI/obj/Debug/netstandard2.0/app_UI.csproj.AssemblyReference.cache
+/Users/kennikollemorten/Projects/WorldleAlgorihtm/app_UI/app_UI/obj/Debug/netstandard2.0/app_UI.GeneratedMSBuildEditorConfig.editorconfig
+/Users/kennikollemorten/Projects/WorldleAlgorihtm/app_UI/app_UI/obj/Debug/netstandard2.0/App.xaml.g.cs
+/Users/kennikollemorten/Projects/WorldleAlgorihtm/app_UI/app_UI/obj/Debug/netstandard2.0/MainPage.xaml.g.cs
+/Users/kennikollemorten/Projects/WorldleAlgorihtm/app_UI/app_UI/obj/Debug/netstandard2.0/app_UI.AssemblyInfoInputs.cache
+/Users/kennikollemorten/Projects/WorldleAlgorihtm/app_UI/app_UI/obj/Debug/netstandard2.0/app_UI.AssemblyInfo.cs
+/Users/kennikollemorten/Projects/WorldleAlgorihtm/app_UI/app_UI/obj/Debug/netstandard2.0/app_UI.csproj.CoreCompileInputs.cache
+/Users/kennikollemorten/Projects/WorldleAlgorihtm/app_UI/app_UI/obj/Debug/netstandard2.0/XamlC.stamp
+/Users/kennikollemorten/Projects/WorldleAlgorihtm/app_UI/app_UI/obj/Debug/netstandard2.0/app_UI.dll
+/Users/kennikollemorten/Projects/WorldleAlgorihtm/app_UI/app_UI/obj/Debug/netstandard2.0/refint/app_UI.dll
+/Users/kennikollemorten/Projects/WorldleAlgorihtm/app_UI/app_UI/obj/Debug/netstandard2.0/app_UI.pdb
