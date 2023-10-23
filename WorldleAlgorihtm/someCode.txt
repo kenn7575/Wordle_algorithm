@@ -1,0 +1,57 @@
+﻿
+
+    /*static List<List<string>> Find5UniqueCombinations(List<string> words)
+    {
+        List<List<string>> uniqueLetterCombinations = new List<List<string>>();
+        int wordCount = words.Count;
+
+        Dictionary<int, string> dirWords = new Dictionary<int, string>();
+        int[] bits = new int[wordCount];
+
+        for (int i = 0; i < wordCount; i++)
+        {
+            var bit = 0;
+            foreach (var ch in words[i])
+            {
+                bit |= 1 << (ch - 'a');
+            }
+            dirWords.TryAdd(bit, words[i]);
+            bits[i] = bit;
+        }
+
+        void RecursiveCombination(int index, int combinationBit, List<string> currentCombination)
+        {
+            if (currentCombination.Count == 5)
+            {
+                uniqueLetterCombinations.Add(new List<string>(currentCombination));
+                try
+                {
+
+                Console.Clear();
+                    
+                Console.WriteLine(((double)uniqueLetterCombinations.Count() / 538 *100) +"%");
+                }
+                catch
+                {
+
+                }
+                return;
+            }
+
+            for (int i = index; i < wordCount; i++)
+            {
+                if ((combinationBit & bits[i]) == 0)
+                {
+                    currentCombination.Add(dirWords[bits[i]]);
+                    combinationBit |= bits[i];
+                    RecursiveCombination(i + 1, combinationBit, currentCombination);
+                    currentCombination.RemoveAt(currentCombination.Count - 1);
+                    combinationBit ^= bits[i];
+                }
+            }
+        }
+
+        RecursiveCombination(0, 0, new List<string>());
+
+        return uniqueLetterCombinations;
+    }*/
