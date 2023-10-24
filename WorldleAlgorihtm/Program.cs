@@ -8,53 +8,45 @@ using System.Threading;
 
 class Program
 {
-
+    public static List<List<int>> matches = new();
     static void Main()
     {
-        var stopWatch = new System.Diagnostics.Stopwatch();
-
-        stopWatch.Start();
-
-        //import words from file
-        List<string> alpha = readFile("alpha.txt");
-
-
-        stopWatch.Stop();
-        Console.WriteLine("Loading and filtering took {0} ms", stopWatch.Elapsed);
-
-
-
-        //run algorithm
-        stopWatch.Reset();
-        stopWatch.Start();
-        // List<List<string>> matches = Find5UniqueCombinations(alpha,1,1);
-
         try
         {
+            //import words from file
+            List<string> words = readFile("alpha.txt");
+            Console.WriteLine("Loading and filtering complete.");
 
-            DistributeTasks(2, alpha);
+            //convert to binaary
+            Dictionary<int, string> dirWords = new Dictionary<int, string>();
+            int wordCount = words.Count();
+            int[] bits = new int[wordCount];
+            for (int i = 0; i < wordCount; i++)
+            {
+                var bit = 0;
+                foreach (var ch in words[i])
+                {
+                    bit |= 1 << (ch - 'a');
+                }
+                dirWords.TryAdd(bit, words[i]);
+                bits[i] = bit;
+            }
+
+            //run algorithm
+
+
+            var stopWatch = new System.Diagnostics.Stopwatch();
+            stopWatch.Start();
+            DistributeTasks(1, bits);
             stopWatch.Stop();
-            Console.WriteLine("Done "+ stopWatch.Elapsed);
-            Console.WriteLine("Done!" );
-            Console.WriteLine("Milliseconds: " + stopWatch.Elapsed.Milliseconds);
-            Console.WriteLine("Microseconds: " + stopWatch.Elapsed.Microseconds);
+
+            //print results
+            //printRsult();
         } catch(Exception e)
         {
             Console.WriteLine("error: " +e);
         }
-
-
-
-
-
-
         Console.ReadKey();
-
-
-        //print result
-
-        // printRsult(matches, stopWatch.Elapsed);
-
     }
     static void printRsult(List<List<string>> matchesA, TimeSpan timeA)
     {
@@ -68,8 +60,6 @@ class Program
 
         Console.WriteLine();
 
-
-
         foreach (List<string> list in matchesA)
         {
             foreach (string word in list)
@@ -80,8 +70,6 @@ class Program
         }
         Console.ReadKey();
     }
-
-
     static List<string> readFile(string path)
     {
         List<string> lines = new List<string>();
@@ -113,48 +101,61 @@ class Program
         }
         return lines;
     }
-
-    static void  DistributeTasks(int numOfThreads, List<string> words)
+    static void  DistributeTasks(int numOfThreads, int[] bits)
     {
         List<Task> threads = new();
-        List<List<List<string>>> matches = new();
+        List<List<string>> matches = new();
 
         
         Parallel.For(0, numOfThreads, x =>
         {
-            matches.Add(Find5UniqueCombinations(words, numOfThreads, x+1)) ;
+            Find5UniqueCombinations(bits, numOfThreads, x + 1) ;
         });
-        
-        /*for (int i = 0; i < numOfThreads; i++)
-        {
-            threads.Add(i =>
-            {
-                Console.WriteLine("index : {0}", i);
-                matches.Add(Find5UniqueCombinations(words, numOfThreads, i+1));
-            }
-            ));
-
-            
-        }
-        foreach(Thread thr in threads)
-        {
-            thr.Start();
-        }*/
-
-        foreach(List<List<string>> lists in matches)
-        {
-            foreach (List<string> list in lists)
-            {
-                foreach (string word in list)
-                {
-                    Console.Write(word + " ");
-                }
-                Console.WriteLine();
-            }
-        }
     }
+    
 
-    static List<List<string>> Find5UniqueCombinations(List<string> words, int numberOfThreads, int threadNumber)
+    static void Find5UniqueCombinations(int[] bits, int numOfThreads, int threadIndex)
+    {
+       
+        int wordCount = bits.Length;
+
+        
+
+        void RecursiveCombination(int index, int combinationBit, List<int> currentCombination)
+        {
+            if (currentCombination.Count == 5)
+            {
+                matches.Add(new List<int>(currentCombination));
+                try
+                {
+                    Console.Clear();   
+                    Console.WriteLine(matches.Count());
+                }
+                catch(Exception e)
+                {
+                    Console.WriteLine(e.ToString()); 
+                }
+                return;
+            }
+
+            for (int i = index; i < wordCount; i++)
+            {
+                if ((combinationBit & bits[i]) == 0)
+                {
+                    currentCombination.Add(bits[i]);
+                    combinationBit |= bits[i];
+                    RecursiveCombination(i + 1, combinationBit, currentCombination);
+                    currentCombination.RemoveAt(currentCombination.Count - 1);
+                    combinationBit ^= bits[i];
+                }
+            }
+        }
+
+        RecursiveCombination(0, 0, new List<int>());
+
+        
+    }
+    /*static List<List<string>> Find5UniqueCombinations(List<string> words, int numberOfThreads, int threadNumber)
     {
         
         List<List<string>> uniqueLetterCombinations = new List<List<string>>();
@@ -228,9 +229,12 @@ class Program
                                 uniqueLetterCombinations.Add(combination);
                                 foreach(string word in combination)
                                 {
-                                    Console.Write(word + " ");
+                                    Console.Clear();
+                                    Console.WriteLine("Core: " + threadNumber);
+                                    Console.WriteLine("Index: " + uniqueLetterCombinations.Count()); ;
+
                                 }
-                                Console.WriteLine();
+                                
                             }
                         }
                     }
@@ -238,11 +242,5 @@ class Program
             }
         }
         return uniqueLetterCombinations;
-        
-        static void FindMatches(ref int[] bits, int startIndex, int usedBits)
-        {
-            List<List<string>> combinations;
-
-        }
-    }
+    }*/
 }
